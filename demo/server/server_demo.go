@@ -16,5 +16,9 @@ func main() {
 	for {
 		msg, _ := socket.Recv(0)
 		println("Got", string(msg))
+		err = socket.Send(msg, 0)
+		if err != nil {
+			log.Fatal("socket send occur err:", err)
+		}
 	}
 }
